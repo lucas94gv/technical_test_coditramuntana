@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_28_200042) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_28_212502) do
   create_table "artists", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.text "description"
@@ -22,6 +22,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_200042) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "authors_songs", id: false, force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "song_id", null: false
+    t.index ["author_id", "song_id"], name: "index_authors_songs_on_author_id_and_song_id", unique: true
+    t.index ["author_id"], name: "index_authors_songs_on_author_id"
+    t.index ["song_id"], name: "index_authors_songs_on_song_id"
   end
 
   create_table "lps", force: :cascade do |t|
@@ -41,6 +49,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_28_200042) do
     t.index ["lp_id"], name: "index_songs_on_lp_id"
   end
 
+  add_foreign_key "authors_songs", "authors"
+  add_foreign_key "authors_songs", "songs"
   add_foreign_key "lps", "artists"
   add_foreign_key "songs", "lps"
 end
