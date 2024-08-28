@@ -10,32 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_28_194714) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_28_200042) do
   create_table "artists", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lps", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.text "description"
-    t.integer "artist_id"
+    t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_lps_on_artist_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
-    t.integer "lp_id"
+    t.string "name", default: "", null: false
+    t.integer "lp_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lp_id"], name: "index_songs_on_lp_id"
