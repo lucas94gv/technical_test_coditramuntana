@@ -5,4 +5,5 @@ class Song < ApplicationRecord
 
   # Associations
   belongs_to :lp
+  has_and_belongs_to_many :authors
 end
