@@ -5,6 +5,8 @@ require 'rails_helper'
 RSpec.describe(Song, type: :model) do
   before(:each) do
     @song = FactoryBot.create(:song)
+    @author = FactoryBot.create(:author)
+    @author_two = FactoryBot.create(:author)
   end
 
   describe 'database kind fields' do
@@ -32,6 +34,13 @@ RSpec.describe(Song, type: :model) do
   describe 'Associations' do
     it 'is valid if belongs to lp' do
         expect(@song.lp).to be_kind_of(Lp)
+    end
+
+    it 'should have many authors' do
+      @song.authors << @author
+      @song.authors << @author_two
+      expect(@song.authors).to include(@author, @author_two)
+      expect(@song.authors.count).to eq(2)
     end
   end
 end
