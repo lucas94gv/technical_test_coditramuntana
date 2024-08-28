@@ -13,7 +13,8 @@ RSpec.describe(Artist, type: :model) do
     end
 
     it 'description is text' do
-      expect(@artist.description.type).to eq(:text)
+      column = ActiveRecord::Base.connection.columns(Artist.table_name).find { |c| c.name == 'description' }
+      expect(column.type).to eq(:text)
     end
   end
 

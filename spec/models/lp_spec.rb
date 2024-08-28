@@ -13,7 +13,8 @@ RSpec.describe(Lp, type: :model) do
     end
 
     it 'description is text' do
-      expect(@lp.description.type).to eq(:text)
+      column = ActiveRecord::Base.connection.columns(Lp.table_name).find { |c| c.name == 'description' }
+      expect(column.type).to eq(:text)
     end
 
     it 'is valid if artist_id is integer' do
