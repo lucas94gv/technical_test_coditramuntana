@@ -24,4 +24,11 @@ RSpec.describe(Artist, type: :model) do
       expect(@artist).not_to be_valid
     end
   end
+
+  describe 'Associations' do
+    it 'should have many lps' do
+      artist = described_class.reflect_on_association(:lps)
+      expect(artist.macro).to eq(:has_many)
+    end
+  end
 end

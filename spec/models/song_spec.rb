@@ -28,4 +28,10 @@ RSpec.describe(Song, type: :model) do
       expect(@song).not_to be_valid
     end
   end
+
+  describe 'Associations' do
+    it 'is valid if belongs to lp' do
+        expect(@song.lp).to be_kind_of(Lp)
+    end
+  end
 end

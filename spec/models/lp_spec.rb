@@ -33,4 +33,15 @@ RSpec.describe(Lp, type: :model) do
       expect(@lp).not_to be_valid
     end
   end
+
+  describe 'Associations' do
+    it 'is valid if belongs to artist' do
+        expect(@lp.artist).to be_kind_of(Artist)
+    end
+
+    it 'should have many songs' do
+      lp = described_class.reflect_on_association(:songs)
+      expect(lp.macro).to eq(:has_many)
+    end
+  end
 end
