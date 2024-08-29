@@ -1,8 +1,23 @@
-<%= render @lp %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= @lp.name %></h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Description:</strong> <%= @lp.description %></p>
+          <p class="card-text"><strong>Artist:</strong> <%= @lp.artist.name %></p>
+          
+          <div class="mt-4">
+            <%= link_to 'Edit', edit_lp_path(@lp), class: "btn btn-warning" %>
+            <%= link_to 'Back to List', lps_path, class: "btn btn-secondary" %>
+            <%= link_to 'Delete', lp_path(@lp), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 
-<div>
-  <%= link_to "Edit this lp", edit_lp_path(@lp) %> |
-  <%= link_to "Back to lps", lps_path %>
-
-  <%= button_to "Destroy this lp", @lp, method: :delete %>
+            <%#= button_to "Delete", @lp, method: :delete, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

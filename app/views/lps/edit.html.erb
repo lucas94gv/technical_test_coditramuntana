@@ -1,3 +1,4 @@
+<% if 1 == 0 %>
 <%= render "form", lp: @lp %>
 
 <br>
@@ -5,4 +6,19 @@
 <div>
   <%= link_to "Show this lp", @lp %> |
   <%= link_to "Back to lps", lps_path %>
+</div>
+<% end %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center mb-4">Edit LP</h1>
+
+      <%= render 'form', lp: @lp %>
+
+      <div class="mt-4 text-center">
+        <%= link_to 'Back to LPs List', lps_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>
