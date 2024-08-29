@@ -1,0 +1,13 @@
+<h1>Lps</h1>
+
+<div id="lps">
+  <% @lps.each do |lp| %>
+    <%= render lp %>
+    <p>
+      <%= link_to "Show this lp", lp %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to "New lp", new_lp_path %>

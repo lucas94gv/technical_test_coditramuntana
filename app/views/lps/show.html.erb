@@ -1,0 +1,8 @@
+<%= render @lp %>
+
+<div>
+  <%= link_to "Edit this lp", edit_lp_path(@lp) %> |
+  <%= link_to "Back to lps", lps_path %>
+
+  <%= button_to "Destroy this lp", @lp, method: :delete %>
+</div>
