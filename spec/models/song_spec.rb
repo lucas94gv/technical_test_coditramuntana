@@ -30,10 +30,18 @@ RSpec.describe(Song, type: :model) do
       expect(@song).not_to be_valid
     end
   end
+end
+
+RSpec.describe(Song, type: :model) do
+  before(:each) do
+    @song = FactoryBot.create(:song)
+    @author = FactoryBot.create(:author)
+    @author_two = FactoryBot.create(:author)
+  end
 
   describe 'Associations' do
     it 'is valid if belongs to lp' do
-        expect(@song.lp).to be_kind_of(Lp)
+      expect(@song.lp).to be_kind_of(Lp)
     end
 
     it 'should have many authors' do

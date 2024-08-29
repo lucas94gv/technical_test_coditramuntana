@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Migration for create basic tables
 class CreateTables < ActiveRecord::Migration[7.1]
   def up

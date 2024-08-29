@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Model representing an artist with associated attributes and behavior
 class Artist < ApplicationRecord
   # Validations
   validates :name, presence: true, length: { maximum: 255 }

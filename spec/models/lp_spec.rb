@@ -33,10 +33,16 @@ RSpec.describe(Lp, type: :model) do
       expect(@lp).not_to be_valid
     end
   end
+end
+
+RSpec.describe(Lp, type: :model) do
+  before(:each) do
+    @lp = FactoryBot.create(:lp)
+  end
 
   describe 'Associations' do
     it 'is valid if belongs to artist' do
-        expect(@lp.artist).to be_kind_of(Artist)
+      expect(@lp.artist).to be_kind_of(Artist)
     end
 
     it 'should have many songs' do

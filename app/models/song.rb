@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Model representing a song with associated attributes and behavior
 class Song < ApplicationRecord
   # Validations
   validates :name, presence: true, length: { maximum: 255 }

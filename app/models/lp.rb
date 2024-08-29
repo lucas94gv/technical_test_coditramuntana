@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Model representing a lp with associated attributes and behavior
 class Lp < ApplicationRecord
   # Validations
   validates :name, presence: true, length: { maximum: 255 }
