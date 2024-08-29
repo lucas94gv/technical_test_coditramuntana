@@ -28,6 +28,9 @@ gem "bootsnap", require: false
 # Testing
 gem 'rswag', '~> 2.13'
 
+# Syntax
+gem 'rubocop', '~> 1.60', '>= 1.60.1'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   # Testing
