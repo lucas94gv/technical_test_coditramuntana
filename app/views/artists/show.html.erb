@@ -1,5 +1,7 @@
 <%= render @artist %>
 
+<p>Nº total de lp's: <%= @artist.lps.count %></p>
+
 <div>
   <%= link_to "Edit this artist", edit_artist_path(@artist) %> |
   <%= link_to "Back to artists", artists_path %>
