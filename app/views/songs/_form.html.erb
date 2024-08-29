@@ -1,0 +1,28 @@
+<%= form_with(model: song) do |form| %>
+  <% if song.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading"><%= pluralize(lp.errors.count, "error") %> prohibited this song from being saved:</h4>
+
+      <ul>
+        <% song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :lp_id, class: "form-label" %>
+    <%= form.select :lp_id, Lp.order(:name).map { |lp| [lp.name, lp.id] }, include_blank: true, class: "form-select" %>
+  </div>
+
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
