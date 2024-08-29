@@ -1,2 +1,13 @@
-<h1>Authors#new</h1>
-<p>Find me in app/views/authors/new.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center mb-4">New Author</h1>
+
+      <%= render 'form', author: @author %>
+
+      <div class="mt-4 text-center">
+        <%= link_to 'Back to artists list', authors_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

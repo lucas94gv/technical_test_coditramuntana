@@ -1,2 +1,13 @@
-<h1>Authors#edit</h1>
-<p>Find me in app/views/authors/edit.html.erb</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center mb-4">Edit Author</h1>
+
+      <%= render 'form', author: @author %>
+
+      <div class="mt-4 text-center">
+        <%= link_to 'Back to Author List', authors_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
