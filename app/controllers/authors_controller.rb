@@ -32,7 +32,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to artist_url(@author), notice: 'Author was successfully updated.' }
+        format.html { redirect_to author_url(@author), notice: 'Author was successfully updated.' }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit, status: :unprocessable_entity }
