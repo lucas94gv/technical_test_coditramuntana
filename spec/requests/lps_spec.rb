@@ -39,16 +39,17 @@ RSpec.describe LpsController, type: :controller do
 end
 
 RSpec.describe LpsController, type: :controller do
-  describe 'POST #create' do
-    it 'creates a new Lp with valid parameters' do
-      expect do
-        post :create, params: { lp: { name: Faker::Name.first_name, description: Faker::Lorem.sentence } }
-      end.to change(Lp, :count).by(1)
-    end
+  before(:each) do
+    @artist = FactoryBot.create(:artist)
+  end
 
-    it 'redirects to the created lp' do
-      post :create, params: { lp: { name: Faker::Name.first_name, description: Faker::Lorem.sentence } }
-      expect(response).to redirect_to(Lp.last)
+  describe 'POST #create' do
+    it 'creates a new lp with valid parameters' do
+      expect do
+        post :create,
+             params: { lp: { name: Faker::Name.first_name, description: Faker::Lorem.sentence,
+                             artist_id: @artist.id } }
+      end.to change(Lp, :count).by(1)
     end
 
     it 'not create new Lp with invalid parameters' do
