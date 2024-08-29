@@ -1,8 +1,13 @@
-<%= render "form", artist: @artist %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center mb-4">Edit Artist</h1>
 
-<br>
+      <%= render 'form', artist: @artist %>
 
-<div>
-  <%= link_to "Show this artist", @artist %> |
-  <%= link_to "Back to artists", artists_path %>
+      <div class="mt-4 text-center">
+        <%= link_to 'Back to Artist List', artists_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>

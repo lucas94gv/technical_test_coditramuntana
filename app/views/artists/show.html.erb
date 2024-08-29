@@ -1,10 +1,26 @@
-<%= render @artist %>
- 
-<p>Nº total de lp's: <%= @artist.lps.count %></p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><%= @artist.name %></h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Total of lp's:</strong> <%= @artist.lps.count %></p>
+          <% if @artist.description.present? %>
+            <p class="card-text"><strong>Description:</strong> <%= @artist.description %></p>
+          <% end %>
+          
+          <div class="mt-4">
+            <%= link_to 'LPs', lps_path(artist_id: @artist.id), class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-warning" %>
+            <%= link_to 'Back to List', artists_path, class: "btn btn-secondary" %>
+            <%= link_to 'Delete', artist_path(@artist), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 
-<div>
-  <%= link_to "Edit this artist", edit_artist_path(@artist) %> |
-  <%= link_to "Back to artists", artists_path %>
-
-  <%= button_to "Destroy this artist", @artist, method: :delete %>
+            <%#= button_to "Delete", @lp, method: :delete, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
