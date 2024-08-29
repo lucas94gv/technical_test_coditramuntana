@@ -23,8 +23,7 @@
 
   <div>
     <%= form.label :artist_id, style: "display: block" %>
-    <%#= form.text_field :description %>
-    <%= form.select :artist_id, Artist.order(:name).map { |artist| [artist.name, artist.id] } %>
+    <%= form.select :artist_id, Artist.order(:name).map { |artist| [artist.name, artist.id] }, include_blank: true %>
   </div>
 
 
