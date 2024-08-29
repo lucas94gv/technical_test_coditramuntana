@@ -5,6 +5,8 @@ class LpsController < ApplicationController
   before_action :find_lp, only: %i[show edit update destroy]
   def index
     @lps = Lp.all
+    @lps = @lps.filter_by_artist(params[:artist_id]) if params[:artist_id].present?
+    @lps = @lps.order(:name)
   end
 
   def show; end

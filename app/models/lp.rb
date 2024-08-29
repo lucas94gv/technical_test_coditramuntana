@@ -10,4 +10,7 @@ class Lp < ApplicationRecord
   # Associations
   belongs_to :artist
   has_many :songs, dependent: :destroy
+
+  # Scopes
+  scope :filter_by_artist, ->(id) { where artist_id: id }
 end
