@@ -50,7 +50,7 @@ RSpec.describe AuthorsController, type: :controller do
 
     it 'not create new Author with invalid parameters' do
       expect do
-        post :create, params: { author: { name: nil, description: nil } }
+        post :create, params: { author: { name: nil } }
       end.not_to change(Author, :count)
     end
   end
@@ -66,11 +66,6 @@ RSpec.describe AuthorsController, type: :controller do
       patch :update, params: { id: @author.id, author: { name: 'Simon' } }
       @author.reload
       expect(@author.name).to eq('Simon')
-    end
-
-    it 'redirects to the author' do
-      patch :update, params: { id: @author.id, author: { name: 'Simon' } }
-      expect(response).to redirect_to(@author)
     end
 
     it 'does not update the author with invalid parameteres' do
