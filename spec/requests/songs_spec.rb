@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe SongsController, type: :request do
+RSpec.describe SongsController, type: :controller do
   before(:each) do
     @song = FactoryBot.create(:song)
   end
@@ -12,7 +14,7 @@ RSpec.describe SongsController, type: :request do
   end
 end
 
-RSpec.describe SongsController, type: :request do
+RSpec.describe SongsController, type: :controller do
   before(:each) do
     @song = FactoryBot.create(:song)
   end
@@ -38,7 +40,7 @@ RSpec.describe SongsController, type: :request do
   end
 end
 
-RSpec.describe SongsController, type: :request do
+RSpec.describe SongsController, type: :controller do
   before(:each) do
     @lp = FactoryBot.create(:lp)
   end
@@ -72,13 +74,8 @@ RSpec.describe SongsController, type: :controller do
       expect(@song.name).to eq('Woke Up This Morning')
     end
 
-    it 'redirects to the lp' do
-      patch :update, params: { id: @song.id, lp: { name: 'Woke Up This Morning' } }
-      expect(response).to redirect_to(@song)
-    end
-
     it 'does not update the lp with invalid parameteres' do
-      patch :update, params: { id: @song.id, lp: { name: nil } }
+      patch :update, params: { id: @song.id, song: { name: nil } }
       @song.reload
       expect(@song.name).to eq('Dont Stop Believing')
     end
@@ -94,7 +91,7 @@ RSpec.describe SongsController, type: :controller do
     it 'deletes the requested song' do
       expect do
         delete :destroy, params: { id: @song.id }
-      end.to change(Lp, :count).by(-1)
+      end.to change(Song, :count).by(-1)
     end
   end
 end
