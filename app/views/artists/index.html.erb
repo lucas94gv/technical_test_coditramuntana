@@ -18,13 +18,15 @@
         <tbody>
           <% @artists.each do |artist| %>
             <tr>
-              <td><%= artist.name %></td>
-              <td><%= artist.description %></td>
-              <td>
-                <%= link_to 'LPs', lps_path(artist_id: artist.id), class: "btn btn-primary btn-sm" %>
-                <%= link_to 'Show', artist_path(artist), class: "btn btn-info btn-sm" %>
-                <%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-warning btn-sm" %>
-                <%= link_to "Delete", artist_path(artist), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+              <td class="align-middle"><%= artist.name %></td>
+              <td class="align-middle text-truncate" style="max-width: 300px;"><%= artist.description %></td>
+              <td class="align-middle col-auto">
+                <div class="btn-group" role="group">
+                  <%= link_to 'LPs', lps_path(artist_id: artist.id), class: "btn btn-primary btn-sm" %>
+                  <%= link_to 'Show', artist_path(artist), class: "btn btn-info btn-sm" %>
+                  <%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-warning btn-sm" %>
+                  <%= link_to "Delete", artist_path(artist), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+                </div>
               </td>
             </tr>
           <% end %>

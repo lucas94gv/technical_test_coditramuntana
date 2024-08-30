@@ -31,13 +31,15 @@
         <tbody>
           <% @lps.each do |lp| %>
             <tr>
-              <td><%= lp.name %></td>
-              <td><%= lp.description %></td>
-              <td><%= lp.artist.name %></td>
-              <td>
-                <%= link_to 'Show', lp_path(lp), class: "btn btn-info btn-sm" %>
-                <%= link_to 'Edit', edit_lp_path(lp), class: "btn btn-warning btn-sm" %>
-                <%= link_to "Delete", lp_path(lp), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+              <td class="align-middle"><%= lp.name %></td>
+              <td class="align-middle text-truncate" style="max-width: 300px;"><%= lp.description %></td>
+              <td class="align-middle"><%= lp.artist.name %></td>
+              <td class="align-middle col-auto">
+                <div class="btn-group" role="group">
+                  <%= link_to 'Show', lp_path(lp), class: "btn btn-info btn-sm" %>
+                  <%= link_to 'Edit', edit_lp_path(lp), class: "btn btn-warning btn-sm" %>
+                  <%= link_to "Delete", lp_path(lp), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+                </div>
               </td>
             </tr>
           <% end %>
