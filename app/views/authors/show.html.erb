@@ -8,8 +8,8 @@
         <div class="card-body">
           
           <div class="mt-4">
-            <%= link_to 'Edit', edit_author_path(@author), class: "btn btn-warning" %>
-            <%= link_to 'Return', request.referer, class: "btn btn-secondary" %>
+            <%= link_to 'Edit', edit_author_path(@author), class: "btn btn-warning btn-sm" %>
+            <%= link_to 'Return', request.referer, class: "btn btn-secondary btn-sm" %>
             <%= link_to "Delete", author_path(@author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           </div>
           <div class="card-body">

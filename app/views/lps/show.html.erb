@@ -12,9 +12,9 @@
           <p class="card-text"><strong>Artist:</strong> <%= @lp.artist.name %></p>
           
           <div class="mt-4">
-            <%= link_to 'Add New Song', new_lp_song_path(@lp), class: 'btn btn-primary' %>
-            <%= link_to 'Edit', edit_lp_path(@lp), class: "btn btn-warning" %>
-            <%= link_to 'Return', request.referer, class: "btn btn-secondary" %>
+            <%= link_to 'Add New Song', new_lp_song_path(@lp), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_lp_path(@lp), class: "btn btn-warning btn-sm" %>
+            <%= link_to 'Return', request.referer, class: "btn btn-secondary btn-sm" %>
             <%= link_to "Delete", lp_path(@lp), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           </div>
           <div class="card-body">
