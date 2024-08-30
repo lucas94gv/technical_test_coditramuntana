@@ -4,3 +4,4 @@ AllCops:
     - db/schema.rb
     - db/migrate/20240828200042_create_tables.rb
     - config/environments/development.rb
+    - app/controllers/exports_controller.rb

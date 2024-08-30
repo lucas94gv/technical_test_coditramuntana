@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'csv'
 
+# Controller to manage operations related to exports in csv.
 class ExportsController < ApplicationController
   def export_data
     respond_to do |format|
@@ -9,6 +12,7 @@ class ExportsController < ApplicationController
 
   private
 
+  # Method that manage csv elements
   def generate_csv
     CSV.generate(headers: true) do |csv|
       csv << %w[Artist LP Song Author]
