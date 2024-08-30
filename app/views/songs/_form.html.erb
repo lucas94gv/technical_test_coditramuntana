@@ -1,7 +1,7 @@
-<%= form_with(model: song) do |form| %>
+<%= form_with(model: [@lp, song]) do |form| %>
   <% if song.errors.any? %>
     <div class="alert alert-danger">
-      <h4 class="alert-heading"><%= pluralize(lp.errors.count, "error") %> prohibited this song from being saved:</h4>
+      <h4 class="alert-heading"><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h4>
 
       <ul>
         <% song.errors.each do |error| %>
@@ -18,7 +18,12 @@
 
   <div class="mb-3">
     <%= form.label :lp_id, class: "form-label" %>
-    <%= form.select :lp_id, Lp.order(:name).map { |lp| [lp.name, lp.id] }, include_blank: true, class: "form-select" %>
+    <% if form.object.new_record? %>
+      <%= form.text_field :lp_name, class: "form-control", value: @lp.name, readonly: true %>
+      <%= form.hidden_field :lp_id, value: @lp.id %>
+    <% else %>
+      <%= form.select :lp_id, Lp.order(:name).map { |lp| [lp.name, lp.id] }, include_blank: @lp.id, class: "form-select" %>
+    <% end %>
   </div>
 
 

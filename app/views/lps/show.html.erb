@@ -12,11 +12,29 @@
           <p class="card-text"><strong>Artist:</strong> <%= @lp.artist.name %></p>
           
           <div class="mt-4">
+            <%= link_to 'Add New Song', new_lp_song_path(@lp), class: 'btn btn-primary' %>
             <%= link_to 'Edit', edit_lp_path(@lp), class: "btn btn-warning" %>
             <%= link_to 'Back to List', lps_path, class: "btn btn-secondary" %>
             <%= link_to 'Delete', lp_path(@lp), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-
-            <%#= button_to "Delete", @lp, method: :delete, class: "btn btn-danger btn-sm" %>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <h4 class="card-title">Songs</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+              <% @lp.songs.each do |song| %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <p class="mb-1 card-text"><strong><%= song.name %></strong></p>
+                  </div>
+                  <div>
+                    <%= link_to 'Show', [@lp, song], class: 'btn btn-info btn-sm' %>
+                    <%= link_to 'Edit', edit_lp_song_path(@lp, song), class: 'btn btn-warning btn-sm' %>
+                    <%= link_to 'Delete', lp_song_path(@lp, song), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>

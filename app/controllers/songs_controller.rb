@@ -2,6 +2,7 @@
 
 # Controller to manage operations related to songs.
 class SongsController < ApplicationController
+  before_action :set_lp
   before_action :find_song, only: %i[show edit update destroy]
   def index
     @songs = Song.all
@@ -10,15 +11,15 @@ class SongsController < ApplicationController
   def show; end
 
   def new
-    @song = Song.new
+    @song = @lp.songs.build
   end
 
   def create
-    @song = Song.new(song_params)
+    @song = @lp.songs.build(song_params)
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to song_url(@song), notice: 'Song was successfully created.' }
+        format.html { redirect_to lp_path(@lp), notice: 'Song was successfully created.' }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +33,7 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to song_url(@song), notice: 'Song was successfully updated.' }
+        format.html { redirect_to lp_song_url(@lp, @song), notice: 'Song was successfully updated.' }
         format.json { render :show, status: :ok, location: @song }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,5 +59,9 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:name, :lp_id)
+  end
+
+  def set_lp
+    @lp = Lp.find(params[:lp_id])
   end
 end

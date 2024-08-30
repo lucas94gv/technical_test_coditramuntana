@@ -9,9 +9,9 @@
           <p class="card-text"><strong>LP:</strong> <%= @song.lp.name %></p>
           
           <div class="mt-4">
-            <%= link_to 'Edit', edit_song_path(@song), class: "btn btn-warning" %>
-            <%= link_to 'Back to List', songs_path, class: "btn btn-secondary" %>
-            <%= link_to 'Delete', song_path(@song), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to 'Edit', edit_lp_song_path(@lp, @song), class: "btn btn-warning" %>
+            <%= link_to 'Back to LP', lp_path(@lp), class: "btn btn-secondary" %>
+            <%= link_to 'Delete', lp_song_path(@lp, @song), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 
             <%#= button_to "Delete", @lp, method: :delete, class: "btn btn-danger btn-sm" %>
           </div>
