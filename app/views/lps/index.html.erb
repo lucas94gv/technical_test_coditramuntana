@@ -3,7 +3,11 @@
     <div class="col-md-12">
       <h1 class="text-center mb-4">LPs</h1>
 
-      <%= link_to 'New LP', new_lp_path, class: "btn btn-primary mb-3" %>
+      <% if params[:artist_id].present? %>
+        <%= link_to 'New LP', new_lp_path(artist_id: params[:artist_id]), class: "btn btn-primary mb-3" %>
+      <% else %>
+        <%= link_to 'New LP', new_lp_path, class: "btn btn-primary mb-3" %>
+      <% end %>
 
       <table class="table table-striped table-hover">
         <thead class="thead-dark">

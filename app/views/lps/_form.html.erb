@@ -23,7 +23,12 @@
 
   <div class="mb-3">
     <%= form.label :artist_id, class: "form-label" %>
-    <%= form.select :artist_id, Artist.order(:name).map { |artist| [artist.name, artist.id] }, include_blank: true, class: "form-select" %>
+    <% if params[:artist_id].present? %>
+      <%= form.text_field :artist_name, class: "form-control", value: Artist.find(params[:artist_id].to_i).name, readonly: true %>
+      <%= form.hidden_field :artist_id, value: Artist.find(params[:artist_id].to_i).id %>
+    <% else %>
+      <%= form.select :artist_id, Artist.order(:name).map { |artist| [artist.name, artist.id] }, include_blank: true, class: "form-select" %>
+    <% end %>    
   </div>
 
 
