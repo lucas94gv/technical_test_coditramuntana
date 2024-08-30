@@ -9,7 +9,7 @@ Follow these steps to clone the repository and configure the application in your
 1. **Steps:**
 
   ```bash
-  git clone <URL_DEL_REPOSITORIO>
+  git clone git@github.com:lucas94gv/technical_test_coditramuntana.git
   bundle install
   rails db:create
   rails db:migrate
