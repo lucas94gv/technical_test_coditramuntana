@@ -6,7 +6,7 @@
       <%= render 'form', artist: @artist %>
 
       <div class="mt-4 text-center">
-        <%= link_to 'Back to artists list', artists_path, class: "btn btn-secondary" %>
+        <%= link_to 'Return', request.referer, class: "btn btn-secondary" %>
       </div>
     </div>
   </div>

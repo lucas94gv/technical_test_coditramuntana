@@ -6,7 +6,7 @@
       <%= render 'form', author: @author %>
 
       <div class="mt-4 text-center">
-        <%= link_to 'Back to Author List', authors_path, class: "btn btn-secondary" %>
+        <%= link_to 'Return', request.referer, class: "btn btn-secondary" %>
       </div>
     </div>
   </div>
