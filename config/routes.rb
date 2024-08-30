@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'export', to: 'exports#export_data', as: :export_data
+
   resources :authors
   resources :artists
   resources :lps
