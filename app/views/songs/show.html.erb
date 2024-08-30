@@ -10,8 +10,8 @@
           <p class="card-text"><strong>Authors:</strong> <%= @song.authors.map(&:name).join(', ') %></p>
 
           <div class="mt-4">
-            <%= link_to 'Edit', edit_lp_song_path(@lp, @song), class: "btn btn-warning btn-sm" %>
             <%= link_to 'Return', request.referer, class: "btn btn-secondary btn-sm" %>
+            <%= link_to 'Edit', edit_lp_song_path(@lp, @song), class: "btn btn-warning btn-sm" %>            
             <%= link_to "Delete", lp_song_path(@lp, @song), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           </div>
         </div>
