@@ -2,11 +2,15 @@
 
 Rails.application.routes.draw do
   resources :authors
-  # resources :songs
   resources :artists
   resources :lps
   resources :lps do
-    resources :songs
+    resources :songs do
+      member do
+        # put 'set_authors', to: 'songs#set_authors'
+        put 'set_authors'
+      end
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

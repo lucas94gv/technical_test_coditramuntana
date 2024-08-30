@@ -3,7 +3,7 @@
 # Controller to manage operations related to songs.
 class SongsController < ApplicationController
   before_action :set_lp
-  before_action :find_song, only: %i[show edit update destroy]
+  before_action :find_song, only: %i[show edit update destroy set_authors]
   def index
     @songs = Song.all
   end
@@ -48,6 +48,19 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # Method set authors for a song
+  def set_authors
+    author_ids = params[:song][:author_ids].reject(&:empty?).map(&:to_i)
+
+    @song.authors = Author.where(id: author_ids)
+
+    if @song.save
+      redirect_to [@lp, @song], notice: 'Authors were successfully updated.'
+    else
+      render :show
     end
   end
 
