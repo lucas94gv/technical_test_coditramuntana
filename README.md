@@ -4,7 +4,7 @@
 
 ## Instalación y Configuración
 
-Sigue estos pasos para clonar el repositorio y configurar la aplicación en tu entorno local.
+Follow these steps to clone the repository and configure the application in your local environment.
 
 1. **Steps:**
 
