@@ -22,8 +22,7 @@
                 <%= link_to 'LPs', lps_path(artist_id: artist.id), class: "btn btn-primary btn-sm" %>
                 <%= link_to 'Show', artist_path(artist), class: "btn btn-info btn-sm" %>
                 <%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-warning btn-sm" %>
-                <%= link_to 'Delete', artist_path(artist), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-                <%#= button_to "Delete", artist, method: :delete, class: "btn btn-danger btn-sm" %>
+                <%= link_to "Delete", artist_path(artist), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
               </td>
             </tr>
           <% end %>

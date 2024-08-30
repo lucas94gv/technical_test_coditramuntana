@@ -46,7 +46,7 @@ class SongsController < ApplicationController
     @song.destroy!
 
     respond_to do |format|
-      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.html { redirect_to lp_url(@lp), notice: 'Song was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

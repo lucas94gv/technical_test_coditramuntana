@@ -15,7 +15,7 @@
             <%= link_to 'Add New Song', new_lp_song_path(@lp), class: 'btn btn-primary' %>
             <%= link_to 'Edit', edit_lp_path(@lp), class: "btn btn-warning" %>
             <%= link_to 'Back to List', lps_path, class: "btn btn-secondary" %>
-            <%= link_to 'Delete', lp_path(@lp), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to "Delete", lp_path(@lp), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           </div>
           <div class="card-body">
             <div class="card-header">
@@ -30,7 +30,7 @@
                   <div>
                     <%= link_to 'Show', [@lp, song], class: 'btn btn-info btn-sm' %>
                     <%= link_to 'Edit', edit_lp_song_path(@lp, song), class: 'btn btn-warning btn-sm' %>
-                    <%= link_to 'Delete', lp_song_path(@lp, song), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+                    <%= link_to "Delete", lp_song_path(@lp, song), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
                   </div>
                 </li>
               <% end %>

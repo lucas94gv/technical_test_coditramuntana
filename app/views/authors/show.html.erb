@@ -10,9 +10,7 @@
           <div class="mt-4">
             <%= link_to 'Edit', edit_author_path(@author), class: "btn btn-warning" %>
             <%= link_to 'Back to List', authors_path, class: "btn btn-secondary" %>
-            <%= link_to 'Delete', author_path(@author), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-
-            <%#= button_to "Delete", @lp, method: :delete, class: "btn btn-danger btn-sm" %>
+            <%= link_to "Delete", author_path(@author), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           </div>
           <div class="card-body">
             <div class="card-header">
@@ -34,8 +32,7 @@
                     <td>
                       <%= link_to 'Show', lp_song_path(song.lp, song), class: "btn btn-info btn-sm" %>
                       <%= link_to 'Edit', edit_lp_song_path(song.lp, song), class: "btn btn-warning btn-sm" %>
-                      <%= link_to 'Delete', lp_song_path(song.lp, song), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-                      <%#= button_to "Delete", lp, method: :delete, class: "btn btn-danger btn-sm" %>
+                      <%= link_to "Delete", lp_song_path(song.lp, song), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
                     </td>
                   </tr>
                 <% end %>
