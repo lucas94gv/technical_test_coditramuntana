@@ -1,24 +1,19 @@
-# README
+- Ruby 3.3.0
+- Rails 7.1.4
+- Sqlite3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instalación y Configuración
 
-Things you may want to cover:
+Sigue estos pasos para clonar el repositorio y configurar la aplicación en tu entorno local.
 
-* Ruby version
+1. **Steps:**
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ```bash
+  git clone <URL_DEL_REPOSITORIO>
+  bundle install
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rspec 
+  rubocop
+  rails s
