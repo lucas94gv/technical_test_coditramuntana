@@ -2,10 +2,11 @@
 
 # Controller to manage operations related to lps.
 class LpsController < ApplicationController
+  before_action :set_artist, only: %i[index]
   before_action :find_lp, only: %i[show edit update destroy]
   def index
     @lps = Lp.all
-    @lps = @lps.filter_by_artist(params[:artist_id]) if params[:artist_id].present?
+    @lps = @lps.filter_by_artist(@artist_id) if @artist_id.present?
     @lps = @lps.order(:name)
   end
 
@@ -53,6 +54,10 @@ class LpsController < ApplicationController
   end
 
   private
+
+  def set_artist
+    @artist_id = params[:artist_id]
+  end
 
   def find_lp
     @lp = Lp.find(params[:id])

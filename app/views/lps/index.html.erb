@@ -4,18 +4,14 @@
       <h1 class="text-center mb-4">LPs</h1>
       
       <div class="text-end">
-        <% if params[:artist_id].present? %>
-          <%= link_to 'New LP', new_lp_path(artist_id: params[:artist_id]), class: "btn btn-primary mb-3" %>
-        <% else %>
-          <%= link_to 'New LP', new_lp_path, class: "btn btn-primary mb-3" %>
-        <% end %>
+        <%= link_to 'New LP', new_lp_path(artist_id: @artist_id.presence), class: "btn btn-primary mb-3" %>
       </div>
 
       <%= form_with url: lps_path, method: :get, local: true, class: "mb-3" do %>
         <div class="row g-2 align-items-end">
           <div class="col-md-3">
             <%= label_tag :artist_id, "Filter by Artist", class: "form-label" %>
-            <%= select_tag :artist_id, options_from_collection_for_select(Artist.all, :id, :name, params[:artist_id]), include_blank: true, class: "form-select" %>
+            <%= select_tag :artist_id, options_from_collection_for_select(Artist.all, :id, :name, @artist_id), include_blank: true, class: "form-select" %>
           </div>
           <div class="col-md-1">
             <%= submit_tag 'Filter', class: 'btn btn-primary w-100' %>
